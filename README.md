@@ -1,4 +1,1 @@
-# php-project
-php等的相关项目及demo
-
-
+通过composer进行依赖管理的yii2框架demo
