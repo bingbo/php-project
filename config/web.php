@@ -15,6 +15,10 @@ $config = [
                 ],
             ],
         ],
+        'mongodb' => [
+            'class' => '\yii\mongodb\Connection',
+            'dsn' => 'mongodb://developer:password@localhost:27017/mydatabase',
+        ],
         'request' => [
             // !!! insert a secret key in the following (if it is empty) - this is required by cookie validation
             'cookieValidationKey' => '-Y5BkrocgZbixM12UX-8n2YfJdDNe4iP',
@@ -41,7 +45,8 @@ $config = [
             'targets' => [
                 [
                     'class' => 'yii\log\FileTarget',
-                    'levels' => ['error', 'warning'],
+                    'levels' => ['error', 'warning', 'info', 'trace'],
+                    'logFile' =>'@runtime/logs/demo.log', 
                 ],
             ],
         ],

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1cace7aeaff299a17fa2f1f6e6e92088",
-    "content-hash": "d4d3b9e5a683de5947dde9d3586263f0",
+    "hash": "426c96dcc9fef471c33b074e4a67101c",
+    "content-hash": "8ed62824f7cab8d13f6e43c5b6969cf7",
     "packages": [
         {
             "name": "bower-asset/bootstrap",
@@ -684,6 +684,54 @@
                 "yii2"
             ],
             "time": "2016-06-05 20:34:32"
+        },
+        {
+            "name": "yiisoft/yii2-mongodb",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-mongodb.git",
+                "reference": "22fbfefa02a8d516265f25e9132c1e31f77f5010"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-mongodb/zipball/22fbfefa02a8d516265f25e9132c1e31f77f5010",
+                "reference": "22fbfefa02a8d516265f25e9132c1e31f77f5010",
+                "shasum": ""
+            },
+            "require": {
+                "ext-mongodb": ">=1.0.0",
+                "yiisoft/yii2": ">=2.0.5"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.1.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\mongodb\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Paul Klimov",
+                    "email": "klimov.paul@gmail.com"
+                }
+            ],
+            "description": "MongoDb extension for the Yii framework",
+            "keywords": [
+                "active-record",
+                "mongo",
+                "mongodb",
+                "yii2"
+            ],
+            "time": "2016-07-06 10:59:04"
         },
         {
             "name": "yiisoft/yii2-redis",

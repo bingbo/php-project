@@ -75,4 +75,13 @@ return array (
       '@yii/smarty' => $vendorDir . '/yiisoft/yii2-smarty',
     ),
   ),
+  'yiisoft/yii2-mongodb' => 
+  array (
+    'name' => 'yiisoft/yii2-mongodb',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@yii/mongodb' => $vendorDir . '/yiisoft/yii2-mongodb',
+    ),
+  ),
 );

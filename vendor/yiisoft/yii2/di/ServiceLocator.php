@@ -67,6 +67,7 @@ class ServiceLocator extends Component
      */
     public function __get($name)
     {
+
         if ($this->has($name)) {
             return $this->get($name);
         } else {

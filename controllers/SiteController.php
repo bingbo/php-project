@@ -63,7 +63,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        //var_dump(Yii::$app->hbase->showTables());
         return $this->render('index');
     }
 

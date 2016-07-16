@@ -1180,5 +1180,55 @@
             "smarty",
             "yii2"
         ]
+    },
+    {
+        "name": "yiisoft/yii2-mongodb",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/yiisoft/yii2-mongodb.git",
+            "reference": "22fbfefa02a8d516265f25e9132c1e31f77f5010"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/yiisoft/yii2-mongodb/zipball/22fbfefa02a8d516265f25e9132c1e31f77f5010",
+            "reference": "22fbfefa02a8d516265f25e9132c1e31f77f5010",
+            "shasum": ""
+        },
+        "require": {
+            "ext-mongodb": ">=1.0.0",
+            "yiisoft/yii2": ">=2.0.5"
+        },
+        "time": "2016-07-06 10:59:04",
+        "type": "yii2-extension",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.1.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "yii\\mongodb\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Paul Klimov",
+                "email": "klimov.paul@gmail.com"
+            }
+        ],
+        "description": "MongoDb extension for the Yii framework",
+        "keywords": [
+            "active-record",
+            "mongo",
+            "mongodb",
+            "yii2"
+        ]
     }
 ]
