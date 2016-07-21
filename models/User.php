@@ -66,6 +66,10 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
 
         return null;
     }
+    public function getIsAdmin(){
+        //这里写判断管理员逻辑
+        return true;
+    }
 
     /**
      * @inheritdoc

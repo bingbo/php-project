@@ -39,6 +39,14 @@ AppAsset::register($this);
             ['label' => 'Home', 'url' => ['/site/index']],
             ['label' => 'About', 'url' => ['/site/about']],
             ['label' => 'Contact', 'url' => ['/site/contact']],
+            [
+              'label' => '后台管理',
+              'items' => [
+                   ['label' => '产品模块', 'url' => ['/module/index']],
+                   '<li class="divider"></li>',
+                   ['label' => '展现模板', 'url' => ['/template/index']],
+              ],
+            ],
             Yii::$app->user->isGuest ? (
                 ['label' => 'Login', 'url' => ['/site/login']]
             ) : (
