@@ -2,6 +2,10 @@
 
 namespace app\library\core;
 
+/**
+ * @desc 工厂类，创建并保存所有的实例对象
+ * @author ibingbo.zh@gmail.com
+ */
 class Factory{
     
     private static $instances = array();

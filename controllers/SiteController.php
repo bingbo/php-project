@@ -50,11 +50,14 @@ class SiteController extends Controller
                 'class' => 'yii\captcha\CaptchaAction',
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
+            'smarty' => 'app\actions\site\SmartyAction',
         ];
     }
+    /*
     public function actionSmarty(){
         return $this->render('index.tpl');
     }
+     */
 
     /**
      * Displays homepage.
