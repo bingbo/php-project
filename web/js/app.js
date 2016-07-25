@@ -57,15 +57,16 @@ var Utils = function(){
 app.utils = new Utils();
 
 /**
- * @desc 模板信息类
- * @name Template class
+ * @desc 用户信息类
+ * @name User class
  */
-var Coupon = function(){
+var User = function(){
     var _version = '1.0',
-        _doc = 'this is coupon service',
-        _api_coupon_add = '/api/coupon/add',
-        _api_coupon_delete = '/api/coupon/delete',
-        _api_coupon_get = '/api/coupon/get';
+        _doc = 'this is user service',
+        _api_user_add = '/user/add',
+        _api_user_delete = '/user/delete',
+        _api_user_update = '/user/update',
+        _api_user_get = '/user/get';
     this.version = function(){
         return _version;
     };
@@ -74,126 +75,21 @@ var Coupon = function(){
     };
     this.init = function(){};
     this.add = function(data, callback){
-        app.utils.post(_api_coupon_add,data,callback);
-    };
-};
-app.coupon = new Coupon(); 
-
-/**
- * @desc 订单信息类
- * @name class
- */
-var Order = function(){
-    var _version = '1.0',
-        _doc = 'this is order service',
-        _api_order_list = '/api/order/list',
-        _api_order_update = '/api/order/update',
-        _api_order_export = '/order/export',
-        _api_order_get = '/api/order/get';
-    this.version = function(){
-        return _version;
-    };
-    this.doc = function(){
-        return _doc;
-    };
-    this.init = function(){};
-    this.list = function(data, callback){
-        app.utils.post(_api_order_list,data,callback);
-    };
-    this.update = function(data, callback){
-        app.utils.post(_api_order_update,data,callback);
-    };
-    this.detail = function(data, callback){
-        app.utils.post(_api_order_get,data,callback);
-    };
-    this.export = function(data, callback){
-        app.utils.post(_api_order_export,data,callback);
-    };
-};
-app.order = new Order();
-
-/**
- * @desc 渠道号信息类
- * @name Channel class
- */
-var Channel = function(){
-    var _version = '1.0',
-        _doc = 'this is channel service',
-        _api_channel_list = '/api/channel/list',
-        _api_channel_delete = '/api/channel/delete',
-        _api_channel_update = '/api/channel/update',
-        _api_channel_add = '/api/channel/add';
-    this.version = function(){
-        return _version;
-    };
-    this.doc = function(){
-        return _doc;
-    };
-    this.init = function(){};
-    this.list = function(data, callback){
-        app.utils.post(_api_channel_list,data,callback);
-    };
-    this.update = function(data, callback){
-        app.utils.post(_api_order_update,data,callback);
-    };
-    this.add = function(data, callback){
-        app.utils.post(_api_channel_add,data,callback);
+        app.utils.post(_api_user_add,data,callback);
     };
     this.delete = function(data, callback){
-        app.utils.post(_api_channel_delete,data,callback);
+	    app.utils.get(_api_user_delete,data,callback);
     };
-};
-app.channel = new Channel();
-
-/**
- * @desc 评论信息类
- * @name Comment class
- */
-var Comment = function(){
-    var _version = '1.0',
-        _doc = 'this is comment service',
-        _api_comment_list = '/api/comment/list',
-        _api_comment_delete = '/api/comment/delete',
-        _api_comment_update = '/api/comment/update';
-    this.version = function(){
-        return _version;
-    };
-    this.doc = function(){
-        return _doc;
-    };
-    this.init = function(){};
-    this.list = function(data, callback){
-        app.utils.post(_api_comment_list,data,callback);
+    this.get = function(data, callback){
+	    app.utils.get(_api_user_get,data,callback);
     };
     this.update = function(data, callback){
-        app.utils.post(_api_order_update,data,callback);
-    };
-    this.delete = function(data, callback){
-        app.utils.post(_api_comment_delete,data,callback);
-    };
+	    app.utils.post(_api_user_update,data,callback);
+    }
 };
-app.comment = new Comment();
+app.user = new User(); 
 
-/**
- * @desc 订单物流信息类
- * @name Progress class
- */
-var Progress = function(){
-    var _version = '1.0',
-        _doc = 'this is progress service',
-        _api_progress_list = '/api/progress/list';
-    this.version = function(){
-        return _version;
-    };
-    this.doc = function(){
-        return _doc;
-    };
-    this.init = function(){};
-    this.list = function(data, callback){
-        app.utils.post(_api_progress_list,data,callback);
-    };
-    
-};
-app.progress = new Progress();
+
+
 $.app = app;
 })(jQuery);
