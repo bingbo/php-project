@@ -2,31 +2,16 @@
 
 namespace app\models;
 
-class User extends \yii\base\Object implements \yii\web\IdentityInterface
+use yii\db\ActiveRecord;
+
+class User extends ActiveRecord implements \yii\web\IdentityInterface
 {
-    public $id;
-    public $username;
-    public $password;
     public $authKey;
     public $accessToken;
 
-    private static $users = [
-        '100' => [
-            'id' => '100',
-            'username' => 'admin',
-            'password' => 'admin',
-            'authKey' => 'test100key',
-            'accessToken' => '100-token',
-        ],
-        '101' => [
-            'id' => '101',
-            'username' => 'demo',
-            'password' => 'demo',
-            'authKey' => 'test101key',
-            'accessToken' => '101-token',
-        ],
-    ];
-
+    public static function tableName(){
+        return 'user';
+    }
 
     /**
      * @inheritdoc
@@ -104,5 +89,18 @@ class User extends \yii\base\Object implements \yii\web\IdentityInterface
     public function validatePassword($password)
     {
         return $this->password === $password;
+    }
+
+    public static function getUserListByConditions($conds = null){
+        $users = static::find()->where($conds)->orderBy('update_time desc')->all();
+        /*
+        $users = array_map(
+            function($user){
+                return $user->attributes;
+            },
+            $users
+        );
+         */
+        return $users;
     }
 }

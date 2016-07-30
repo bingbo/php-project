@@ -5,14 +5,14 @@ namespace app\actions\user;
 use Yii;
 use app\library\base\CAction;
 use app\library\core\Factory;
-use app\services\user\IndexService;
+use app\services\user\ListService;
 use yii\base\UserException;
 
-class IndexAction extends CAction{
+class ListAction extends CAction{
 
     public function execute(){
-        $service = Factory::create(IndexService::class);
+        $service = Factory::create(ListService::class);
         $data = $service->execute($this->params->get());
-        return $this->display('index', $data);
+        $this->displayJson($data);
     }
 }

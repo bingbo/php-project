@@ -47,6 +47,8 @@ AppAsset::register($this);
                    ['label' => '产品模块', 'url' => ['/module/index']],
                    '<li class="divider"></li>',
                    ['label' => '展现模板', 'url' => ['/template/index']],
+                   '<li class="divider"></li>',
+                   ['label' => '用户管理', 'url' => ['/user/index']],
               ],
             ],
             Yii::$app->user->isGuest ? (

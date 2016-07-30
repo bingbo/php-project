@@ -32,6 +32,7 @@
 	    <th>#</th>
 	    <th>Name</th>
 	    <th>Password</th>
+	    <th>Email</th>
 		<th>操作</th>
 	  </tr>
 	</thead>
@@ -41,6 +42,7 @@
 		    <td><?= $value->id ?></td>
 		    <td><?= $value->name ?></td>
 		    <td><?= $value->password ?></td>
+		    <td><?= $value->email ?></td>
 		    <td>
 			    <span onclick="user_update(<?= $value->id ?>)" class="btn btn-warning btn-xs">修改</span>
 			    <span onclick="user_delete(<?= $value->id ?>)" class="btn btn-danger btn-xs">删除</span>
@@ -175,15 +177,17 @@
         });
     });
     function user_delete(id){
-        $.app.user.delete($.param({id:id}), function(res){
-            if(res.errno == 0){
-                form.submit();
-            }else{
-                myalertModal.find('.msg').html(res.errmsg);
-                myalertModal.modal('show');
-            }
+        if(confirm('确定要删除吗?')){
+            $.app.user.delete($.param({id:id}), function(res){
+                if(res.errno == 0){
+                    form.submit();
+                }else{
+                    myalertModal.find('.msg').html(res.errmsg);
+                    myalertModal.modal('show');
+                }
 
-        });
+            });
+        }
     }
     function user_update(id){
         $.app.user.get($.param({id:id}), function(res){

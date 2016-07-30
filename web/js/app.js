@@ -20,9 +20,82 @@ var App = function(){
     this.author = function(){
         return _author;
     };
+    
 };
 var app = new App();
 
+/**
+ * @desc 全局cookie操作工具类
+ * @name Cookie class
+ */
+var Cookie = function(){
+    var _version = 1.0,
+        _author = 'ibingbo',
+        _doc = 'this is cookie class, provider some cookie operations',
+        _cookieKeyPrefix = '';
+
+    var _generateCookieKeyPrefix = function(value){
+        var simpleHash = function(value){
+            var hash = 0;
+            if(value.length == 0){
+                return hash;
+            }
+
+            for(var i = 0; i < value.length; i++){
+                var ch = value.charCodeAt(i);
+                hash = ((hash << 5) - hash) + ch;
+                hash = hash & hash;
+            }
+            return hash;
+        };
+
+        return value ? simpleHash(value) : simpleHash('demo'); 
+    };
+    var _init = function(){
+        _cookieKeyPrefix = _generateCookieKeyPrefix();
+    };
+
+	/**
+     * @desc 设置cookie，默认为30天过期，
+     * @param key,value,expire-自定义过期时间，单位秒
+     * @return void
+     */
+    this.set = function(key, value, expire){
+        key = _cookieKeyPrefix + key;
+
+        var expireDate = new Date();
+        if(expire){
+	        expireDate.setTime(expireDate.getTime() + expire * 1000);
+        }else{
+        	expireDate.setDate(expireDate.getDate() + 30);
+        }
+        document.cookie = encodeURIComponent(key) + '=' + encodeURIComponent(value) + "; expires=" + expireDate.toUTCString();
+    };
+
+    this.get = function(key){
+        key = _cookieKeyPrefix + key;
+
+        var equalities = document.cookie.split('; ');
+        for (var i = 0; i < equalities.length; i++) {
+            if (!equalities[i]) {
+                continue;
+            }
+
+            var splitted = equalities[i].split('=');
+            if (splitted.length != 2) {
+                continue;
+            }
+
+            if (decodeURIComponent(splitted[0]) === key) {
+                return decodeURIComponent(splitted[1] || '');
+            }
+        }
+        return null;
+    };
+
+    _init();
+};
+app.cookie = new Cookie();
 /**
  * @desc 全局app的工具类
  * @name Utils class

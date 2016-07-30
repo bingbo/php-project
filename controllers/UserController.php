@@ -52,6 +52,9 @@ class UserController extends Controller
                 'fixedVerifyCode' => YII_ENV_TEST ? 'testme' : null,
             ],
             'index' => 'app\actions\user\IndexAction',
+            'list' => 'app\actions\user\ListAction',
+            'get' => 'app\actions\user\GetAction',
+            'query' => 'app\actions\user\QueryAction',
         ];
     }
     

@@ -44,15 +44,13 @@ use yii\helpers\Html;
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#about">About</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/site/about">About</a></li>
+        <li><a href="/site/contact">Contact</a></li>
         <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">后台管理<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="#">Action</a></li>
-            <li><a href="#">Another action</a></li>
-            <li><a href="#">Something else here</a></li>
+            <li><a href="/user/index">用户管理</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">Nav header</li>
             <li><a href="#">Separated link</a></li>
@@ -60,7 +58,23 @@ use yii\helpers\Html;
           </ul>
         </li>
       </ul>
+      
+      <ul class="nav navbar-nav navbar-right">
+	        <li class="dropdown">
+	          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">user <span class="caret"></span></a>
+	          <ul class="dropdown-menu">
+	            <li><a href="#">login</a></li>
+	            <li><a href="#">logout</a></li>
+	            <li><a href="#">Something else here</a></li>
+	            <li role="separator" class="divider"></li>
+	            <li class="dropdown-header">Nav header</li>
+	            <li><a href="#">Separated link</a></li>
+	            <li><a href="#">One more separated link</a></li>
+	          </ul>
+	        </li>
+      	</ul>
     </div><!--/.nav-collapse -->
+    
   </div>
 </nav>
 
