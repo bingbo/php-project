@@ -12,6 +12,7 @@ use app\models\ContactForm;
 class UserController extends Controller
 {
     public $layout = 'base';
+    public $enableCsrfValidation = false;
     /**
      * @inheritdoc
      */
