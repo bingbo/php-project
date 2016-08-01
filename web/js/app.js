@@ -140,6 +140,15 @@ var User = function(){
         _api_user_delete = '/user/delete',
         _api_user_update = '/user/update',
         _api_user_get = '/user/get';
+
+    this.title = 'User Model';
+
+    this.fields = [
+        {name: 'id', showName: 'id', editable: true, deletable: true, searchable: true},
+        {name: 'name', showName: '姓名', editable: true, deletable: true, searchable: true},
+        {name: 'password', showName: '密码', editable: true, deletable: true, searchable: false},
+        {name: 'email', showName: '邮箱', editable: true, deletable: true, searchable: false}
+    ];
     this.version = function(){
         return _version;
     };
@@ -163,6 +172,96 @@ var User = function(){
 app.user = new User(); 
 
 
+var Model = function(){
+    var _options = {
+        edit: true,
+        add: true,
+        delete: true,
+        search: true
+    };
+    
+    var _models = {};
 
+    var _$container = null;
+    this.setContainer = function($con){
+        _$container = $con;
+    };
+    this.setOptions = function(opts){
+        _options = $.extend(_options, opts);
+    };
+    this.registerModel = function(key, mod){
+        _models[key] = mod;
+    };
+    this.loadModel = function(key){
+        if(key == '' || key == null){
+            return;
+        }
+        var curMod = _models[key];
+        _createPageHeader(curMod);
+        _createPageBody(curMod);
+    };
+
+    var _createPageHeader = function(mod){
+        var _$pHeader = $('<div class="page-header">'),
+            _$pTitle = $('<h1>' + mod.title + '</h1>');
+        _$pHeader.append(_$pTitle);
+        _options.search && _createSearchBox(mod, _$pHeader);
+        _$container && _$container.append(_$pHeader);
+    };
+    var _createSearchBox = function(mod, _$pHeader){
+        var _$form = $('<form class="form-inline search-box">');
+        var _fields = mod.fields;
+        for(var i=0; i<_fields.length; i++){
+            var _fld = _fields[i];
+            if(_fld.searchable){
+                var _$group = $('<div class="form-group">');
+                _$group.append($('<label>').html(_fld.showName));
+                var _$fd = $('<input type="text" class="form-control">');
+                _$fd.attr('name', _fld.name);
+                _$group.append(_$fd);
+                _$form.append(_$group);
+            }
+        }
+        _$form.append('<button type="submit" class="btn btn-default" data-loading-text="Search...">查询</button>');
+        _$form.append('<button type="submit" class="btn btn-success pull-right" data-target="#add-modal">添加</button>');
+        _$pHeader.append(_$form);
+    };
+    var _createPageBody = function(mod){
+        var $table = $('<table class="table table-borderd">');
+        _createTableHead(mod, $table);
+        _createTableBody(mod, $table);
+        _$container && _$container.append($table);
+    };
+
+    var _createTableHead = function(mod, $table){
+        var $thead = $('<thead>'),
+            $row = $('<tr>');
+        for(var i=0; i<mod.fields.length; i++){
+            $row.append('<th>' + mod.fields[i].showName + '</th>');
+        }
+        (_options.edit || _options.delete) && $row.append('<th>操作</th>');
+        $table.append($thead.append($row));
+    };
+
+    var _createTableBody = function(mod, $table){
+        var $tbody = $('<tbody>');
+        var data = [
+            {id:1,name:'bill',password:'1111',email:'bill@126.com'},
+            {id:1,name:'bill',password:'1111',email:'bill@126.com'}
+        ];
+        for(var i=0; i<data.length; i++){
+            var $row = $('<tr>');
+            for(var idx in data[i]){
+                $row.append('<td>' + data[i][idx] + '</td>');
+            }
+            $row.append('<td><span onclick="update()" class="btn btn-warning btn-xs">修改</span><span onclick="delete()" class="btn btn-danger btn-xs">删除</span></td>');
+            $tbody.append($row);
+        }
+        $table.append($tbody);
+    };
+
+
+};
+app.model = new Model();
 $.app = app;
 })(jQuery);

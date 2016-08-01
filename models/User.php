@@ -103,4 +103,5 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
          */
         return $users;
     }
+
 }

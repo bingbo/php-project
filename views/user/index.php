@@ -3,18 +3,7 @@
 <!-- Main jumbotron for a primary marketing message or call to action -->
 <div class="jumbotron">
 	<div class="page-header">
-        <form class="form-inline search-box">
-            <div class="form-group">
-                <label for="exampleInputName2">用户ID</label>
-                <input type="text" class="form-control" name="id" placeholder="23485724">
-            </div>
-            <div class="form-group">
-                <label for="exampleInputName2">用户名</label>
-                <input type="text" class="form-control" name="name" placeholder="aos">
-            </div>
-            <button type="submit" class="btn btn-default" data-loading-text="Searching...">查询</button>
-            <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#add-modal">添加模块</button>
-        </form>
+        
     </div>
 </div>
 
@@ -22,7 +11,19 @@
 
 
 <div class="page-header">
-<h1>users</h1>
+    <h1>users</h1>
+    <form class="form-inline search-box">
+        <div class="form-group">
+            <label for="exampleInputName2">用户ID</label>
+            <input type="text" class="form-control" name="id" placeholder="23485724">
+        </div>
+        <div class="form-group">
+            <label for="exampleInputName2">用户名</label>
+            <input type="text" class="form-control" name="name" placeholder="aos">
+        </div>
+        <button type="submit" class="btn btn-default" data-loading-text="Searching...">查询</button>
+        <button type="button" class="btn btn-success pull-right" data-toggle="modal" data-target="#add-modal">添加模块</button>
+    </form>
 </div>
 
 
