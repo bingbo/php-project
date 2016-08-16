@@ -364,6 +364,7 @@ class HbaseClient implements \HbaseIf {
       $fname = null;
       $mtype = 0;
 
+
       $this->input_->readMessageBegin($fname, $mtype, $rseqid);
       if ($mtype == TMessageType::EXCEPTION) {
         $x = new TApplicationException();

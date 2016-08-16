@@ -149,6 +149,7 @@ class Hbase extends Component
 
 	public function getRow($tableName, $rowKey, $attributes = array())
 	{ 
+
 		$this->transport->open();
 		$arr = $this->client->getRow($tableName, $rowKey, $attributes);  
 		$this->transport->close();

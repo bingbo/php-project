@@ -104,4 +104,14 @@ class User extends ActiveRecord implements \yii\web\IdentityInterface
         return $users;
     }
 
+    public static function deleteUserById($id){
+        $user = static::findOne($id);
+        return $user->delete();
+    }
+
+    public static function getUserById($id){
+        $user = static::findOne($id);
+        return $user->attributes;
+    }
+
 }

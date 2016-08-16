@@ -57,6 +57,8 @@ class UserController extends Controller
             'get' => 'app\actions\user\GetAction',
             'query' => 'app\actions\user\QueryAction',
             'add' => 'app\actions\user\AddAction',
+            'update' => 'app\actions\user\UpdateAction',
+            'delete' => 'app\actions\user\DeleteAction',
         ];
     }
     
