@@ -1,4 +1,7 @@
 通过composer进行依赖管理的yii2框架demo
+### 系统框架
+
+![](https://github.com/bingbo/blog/blob/master/images/yii2_frame_dialog.jpg)
 
 ### NGINX配置
 
